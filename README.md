@@ -49,21 +49,51 @@ Une application de réseau social développée avec React, GraphQL, et Prisma.
 
 ### Backend
 
+1. Installer les dépendances :
 ```bash
 cd server
 npm install
-npx prisma generate
+```
+
+2. Configurer les variables d'environnement :
+```bash
+# Créer un fichier .env avec :
+DATABASE_URL="file:./dev.db"
+JWT_SECRET="votre_secret_jwt"
+```
+
+3. Initialiser la base de données :
+```bash
 npx prisma migrate dev
+npx prisma generate
+```
+
+4. Démarrer le serveur :
+```bash
 npm run dev
 ```
 
 ### Frontend
 
+1. Installer les dépendances :
 ```bash
 cd client
 npm install
+```
+
+2. Démarrer l'application :
+```bash
 npm start
 ```
+
+L'application sera disponible sur http://localhost:3000
+
+## Captures d'écran
+
+Des captures d'écran de l'application sont disponibles dans le dossier `Livrables/Screenshots` :
+- `auth_login.png` : Page de connexion
+- `auth_signup.png` : Page d'inscription
+- `home.png` : Page principale avec les articles
 
 ## Utilisation
 
