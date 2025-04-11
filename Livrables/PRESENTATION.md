@@ -7,35 +7,29 @@ Application de réseau social permettant aux utilisateurs de partager des articl
 
 ### 1. Authentification
 - Système complet d'inscription et connexion
-- Gestion des tokens JWT pour la sécurité
 - Protection des routes privées
 
 ### 2. Gestion des Articles
 - Création d'articles avec titre et contenu
-- Affichage en temps réel des nouveaux articles
-- Interface intuitive de publication
+- Affichage des articles avec leurs likes et commentaires
 
 ### 3. Interactions Sociales
 - Système de likes sur les articles
 - Commentaires sur les articles
-- Affichage des auteurs et timestamps
 
-## Défis techniques rencontrés
+## Défis rencontrés et solutions
 
-### 1. Mise en place de GraphQL
-- Configuration du serveur Apollo
-- Définition du schéma GraphQL
-- Implémentation des resolvers
+### 1. Authentification avec GraphQL
+- **Défi** : Implémentation de l'authentification JWT avec GraphQL, notamment la gestion des tokens dans les requêtes Apollo Client
+- **Solution** : Utilisation d'un middleware côté serveur pour vérifier le token JWT et d'un link Apollo côté client pour injecter automatiquement le token dans les headers
 
-### 2. Authentification
-- Gestion sécurisée des tokens JWT
-- Protection des mutations GraphQL
-- Persistance de la session utilisateur
+### 2. Gestion du temps réel
+- **Défi** : Mise à jour en temps réel des likes et commentaires sans rechargement
+- **Solution** : Utilisation efficace du cache Apollo Client et configuration optimisée des politiques de mise à jour
 
-### 3. État de l'application React
-- Gestion du cache Apollo Client
-- Mise à jour en temps réel des données
-- Optimisation des requêtes GraphQL
+### 3. TypeScript et GraphQL
+- **Défi** : Assurer la cohérence des types entre le backend et le frontend
+- **Solution** : Génération automatique des types TypeScript à partir du schéma GraphQL
 
 ## Architecture technique
 
@@ -49,23 +43,16 @@ Application de réseau social permettant aux utilisateurs de partager des articl
 - Styled-components pour le style
 - TypeScript pour la robustesse du code
 
-## Points d'amélioration possibles
+## Points d'amélioration envisagés
 
-1. **Performance**
-   - Mise en place du pagination pour les articles
-   - Optimisation des requêtes N+1
-   - Mise en cache côté serveur
-
-2. **Fonctionnalités**
+1. **Fonctionnalités**
    - Système de followers/following
    - Notifications en temps réel
-   - Upload d'images
 
-3. **UX/UI**
-   - Mode sombre
-   - Interface responsive plus élaborée
-   - Animations de transition
+2. **Performance**
+   - Pagination des articles
+   - Optimisation du cache
 
 ## Conclusion
 
-Ce projet démontre l'utilisation pratique de GraphQL dans une application full-stack moderne. Il met en évidence les avantages de GraphQL pour la gestion efficace des données et la flexibilité des requêtes, tout en maintenant une base de code TypeScript propre et maintenable.
+Ce projet m'a permis de maîtriser GraphQL et son intégration avec React, tout en relevant des défis techniques intéressants en matière d'authentification et de gestion des données en temps réel.
