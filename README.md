@@ -47,6 +47,10 @@ Une application de réseau social développée avec React, GraphQL, et Prisma.
 
 ## Installation
 
+### Prérequis
+- Node.js (v14 ou supérieur)
+- npm ou yarn
+
 ### Backend
 
 1. Installer les dépendances :
@@ -57,9 +61,9 @@ npm install
 
 2. Configurer les variables d'environnement :
 ```bash
-# Créer un fichier .env avec :
+# Créer un fichier .env dans le dossier server avec :
 DATABASE_URL="file:./dev.db"
-JWT_SECRET="votre_secret_jwt"
+JWT_SECRET="votre_secret_jwt"  # Vous pouvez utiliser n'importe quelle chaîne de caractères
 ```
 
 3. Initialiser la base de données :
@@ -72,6 +76,8 @@ npx prisma generate
 ```bash
 npm run dev
 ```
+
+Le serveur sera disponible sur http://localhost:4000
 
 ### Frontend
 
@@ -87,6 +93,25 @@ npm start
 ```
 
 L'application sera disponible sur http://localhost:3000
+
+## Résolution des problèmes courants
+
+1. Si vous avez une erreur de base de données :
+   ```bash
+   cd server
+   npx prisma migrate reset  # Réinitialise la base de données
+   ```
+
+2. Si le client ne se connecte pas au serveur :
+   - Vérifiez que le serveur est bien lancé sur le port 4000
+   - Vérifiez que l'URL du serveur dans `client/src/apollo.ts` est correcte
+
+3. Si vous avez des erreurs de dépendances :
+   ```bash
+   # Dans le dossier client ou server
+   rm -rf node_modules
+   npm install
+   ```
 
 ## Captures d'écran
 
